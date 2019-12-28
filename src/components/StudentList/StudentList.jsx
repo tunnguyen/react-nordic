@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import students from './data/studentData';
 import StudentRow from './StudentRow';
-
-const tableHeads = Object.keys(students[0]);
 
 class StudentList extends Component {
   render() {
+    const { students } = this.props;
+    const tableHeads = Object.keys(students[0]);
+
     return (
       <div className="student-list">
+        <button onClick={ this.addAverage }>Cacl Average</button>
         <table>
           <thead>
             <tr>
@@ -18,7 +19,11 @@ class StudentList extends Component {
           </thead>
           <tbody>
             {students.map((student, idx) =>
-              <StudentRow key={ idx } { ...student } />
+              <StudentRow 
+                key={ idx }
+                { ...student }
+                test="test"
+              />
             )}
           </tbody>
         </table>
