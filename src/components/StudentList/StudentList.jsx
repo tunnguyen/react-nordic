@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StudentRow from './StudentRow';
+import './StudentList.scss';
 
 class StudentList extends Component {
   render() {
@@ -8,7 +9,7 @@ class StudentList extends Component {
 
     return (
       <div className="student-list">
-        <button onClick={ this.addAverage }>Cacl Average</button>
+        <h2 className="student-list__heading">Students</h2>
         <table>
           <thead>
             <tr>

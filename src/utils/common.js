@@ -1,5 +1,3 @@
-import { stringify } from "querystring";
-
 export const calcAverage = function() {
   let sum = 0;
   for (var i = 0; i < arguments.length; i++) {

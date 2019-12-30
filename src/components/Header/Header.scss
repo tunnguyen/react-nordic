@@ -2,6 +2,9 @@
   &-list {
     display: flex;
     justify-content: center;
+    background: darkcyan;
+    margin: 0;
+    padding: 0;
   }
 
   &-item {
@@ -11,5 +14,7 @@
 
   &-link {
     padding: 5px 20px;
+    color: white;
+    text-decoration: none;
   }
 }
