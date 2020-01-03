@@ -6,6 +6,13 @@ html {
   font-size: 14px;
 }
 
+button,
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
 h2 {
   font-size: 30px;
   color: darkcyan;
@@ -39,6 +46,10 @@ h2 {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+
+  &--grey {
+    background: grey;
+  }
 }
 
 .tabs {

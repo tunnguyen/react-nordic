@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavItem extends Component {
   render() {
@@ -6,7 +7,7 @@ class NavItem extends Component {
 
     return (
       <li className="nav-item">
-        <a className="nav-link" href={ link }>{ label }</a>
+        <Link className="nav-link" to={ link }>{ label }</Link>
       </li>
     )
   }

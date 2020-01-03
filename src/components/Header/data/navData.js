@@ -4,6 +4,10 @@ export default [
     url: '/'
   },
   {
+    label: 'Colorful Tiles',
+    url: '/colorful-tiles'
+  },
+  {
     label: 'About us',
     url: '/about-us'
   },
