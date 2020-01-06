@@ -9,7 +9,8 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      stds: getDataFromLocalStorage('students') || students
+      stds: getDataFromLocalStorage('students') || students,
+      showContent: true
     }
   }
 
@@ -25,7 +26,8 @@ class Home extends Component {
             />
             <StudentList students={ stds } />
           </div>
-          <ContentSection/>
+          <button onClick={ () => this.setState({ showContent: false }) }>Hide content</button>
+          {this.state.showContent && <ContentSection/>}
         </div>
       </div>
     )

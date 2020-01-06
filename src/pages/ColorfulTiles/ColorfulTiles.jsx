@@ -9,8 +9,8 @@ class ColorfulTiles extends Component {
     super();
 
     this.state = {
-      row: 2,
-      column: 2
+      row: 0,
+      column: 0
     }
   }
 

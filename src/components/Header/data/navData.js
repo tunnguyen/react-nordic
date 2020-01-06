@@ -8,8 +8,8 @@ export default [
     url: '/colorful-tiles'
   },
   {
-    label: 'About us',
-    url: '/about-us'
+    label: 'Giphy',
+    url: '/giphy'
   },
   {
     label: 'Student List',
