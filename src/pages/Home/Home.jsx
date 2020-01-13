@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { testRedux } from '../../redux/actions/testActions';
 import StudentForm from '../../components/StudentForm';
 import StudentList from '../../components/StudentList';
 import ContentSection from '../../components/ContentSection';
@@ -14,8 +16,13 @@ class Home extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.testRedux('test data');
+  }
+
   render() {
     const { stds } = this.state;
+    console.log('home', this.props);
     return(
       <div className="home">
         <div className="content">
@@ -34,4 +41,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect(null, { testRedux })(Home);

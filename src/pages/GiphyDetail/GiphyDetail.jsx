@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { getDataFromLocalStorage } from '../../utils/common';
+import { connect } from 'react-redux';
 
 class GiphyDetail extends Component {
   handleData = () => {
-    const { match } = this.props;
-    const storedData = getDataFromLocalStorage('giphy');
-
-    return storedData.filter(item => item.id === match.params.id)[0];
+    const { match, data } = this.props;
+    return data.filter(item => item.id === match.params.id)[0];
   }
 
   render() {
     const { title, images } = this.handleData();
-    console.log(this.handleData());
+
     return (
       <div>
         <h2>{ title }</h2>
@@ -23,4 +21,8 @@ class GiphyDetail extends Component {
   }
 }
 
-export default GiphyDetail;
+const mapStateToProps = state => ({
+  data: state.giphy.trending.data
+})
+
+export default connect(mapStateToProps)(GiphyDetail);
