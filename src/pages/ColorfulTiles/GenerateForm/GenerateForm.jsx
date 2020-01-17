@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { generateTiles } from '../../../redux/actions/tileActions';
 import TextInput from '../../../components/Forms/TextInput';
 import './GenerateForm.scss';
 
@@ -19,7 +21,8 @@ class GenerateForm extends Component {
   }
 
   onGenerate = () => {
-    this.props.generateTiles(this.state);
+    const { row, column } = this.state;
+    this.props.generateTiles(row, column);
   }
 
   setAllToDefault = () => {
@@ -43,4 +46,4 @@ class GenerateForm extends Component {
   }
 }
 
-export default GenerateForm;
+export default connect(null, { generateTiles })(GenerateForm);

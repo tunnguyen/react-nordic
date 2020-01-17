@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
-import { range } from 'lodash';
+import { connect } from 'react-redux';
 import GenerateForm from './GenerateForm';
 import Tile from '../../components/Tile';
 import './ColorfulTiles.scss';
 
 class ColorfulTiles extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      row: 0,
-      column: 0
-    }
-  }
-
   render() {
-    const { row, column } = this.state;
+    const { tiles } = this.props;
+    const myStr = 'Colorful Tiles';
 
     return (
       <div className="colorful-tiles">
-        <h2>Colorful Tiles</h2>
-        <GenerateForm 
-          generateTiles={ data => this.setState({ row: data.row, column: data.column }) }
-        />
-        {!!row && <div>
-          {range(Number(row)).map(row => 
-            <div key={ row } className="tile-row">
-              {!!column && range(Number(column)).map(column =>
-                <Tile key={ column } />  
+        <h2>{ myStr }</h2>
+        <GenerateForm />
+        {!!tiles && <div ref={ tR => { this.tilesRef = tR } }>
+          {tiles.map((row, rowIdx) => 
+            <div key={ rowIdx } className="tile-row">
+              {row.map((tile, columnIdx) =>
+                <Tile 
+                  key={ columnIdx }
+                  rowIdx={ rowIdx }
+                  columnIdx={ columnIdx }
+                  currentColor={ tiles[rowIdx][columnIdx] }
+                  color={ tile } 
+                />  
               )}
             </div>  
           )}
@@ -37,4 +33,8 @@ class ColorfulTiles extends Component {
   }
 }
 
-export default ColorfulTiles;
+const mapStateToProps = state => ({
+  tiles: state.tile.data
+})
+
+export default connect(mapStateToProps)(ColorfulTiles);
